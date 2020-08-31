@@ -2,6 +2,8 @@ let x = 0;
 "let speed = 1;"
 "let z = 0;"
 let y = 0;
+let o = 500;
+let p = 500;
 var r
 var g
 var b
@@ -15,6 +17,8 @@ function setup() {
 function draw() {
   fill(r,g,b);
   rect(x,y,100,100);
+  fill(b,g,r);
+  rect(o,p,100,100);
 
   "if (x > width - 100){"
     "speed = (-1 * speed);"
@@ -41,20 +45,37 @@ function draw() {
     x = x + 50;
   }
 
+  if (p > height-100){
+    p = p - 50;
+  }
+  if (p < 0){
+    p = p + 50;
+  }
+  if (o > width-100){
+    o = o - 50;
+  }
+  if (o < 0){
+    o = o + 50;
+  }
+
   // put drawing code here
 }
 function keyPressed() {
   if (keyCode === LEFT_ARROW){
     x = x - 50;
+    o = o + 50;
   }
   if (keyCode === RIGHT_ARROW){
     x = x + 50;
+    o = o - 50;
   }
   if (keyCode === UP_ARROW){
     y = y - 50;
+    p = p + 50
   }
   if (keyCode === DOWN_ARROW){
     y = y + 50;
+    p = p - 50;
   }
   if (keyCode === LEFT_ARROW || keyCode === RIGHT_ARROW || keyCode === UP_ARROW || keyCode === DOWN_ARROW){
     r = random(255);
