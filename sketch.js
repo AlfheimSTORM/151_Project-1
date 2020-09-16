@@ -1,11 +1,12 @@
-let x = 200; 
-let y = 200;
-let o = 600;
-let p = 600;
-var r, g, b, v, c1, c2
+var r, g, b, v, c1, c2, x, y, o, p
 
 function setup() {
-  createCanvas(800,800);
+  createCanvas(windowWidth-17,windowHeight);
+
+  x = width * 0.25;
+  y = height * 0.25;
+  o = width * 0.75;
+  p = height * 0.75;
 
   c1 = color(255, 0, 31);
   c2 = color(255, 170, 0);
@@ -13,10 +14,10 @@ function setup() {
 
   noStroke();
   fill(0,0,0);
-  rect(0,0,20,800);
-  rect(0,0,800,20);
-  rect(800,800,-800,-20);
-  rect(800,800,-20,-800);
+  rect(0,0,20,height);
+  rect(0,0,width,20);
+  rect(width,height,-width,-20);
+  rect(width,height,-20,-height);
   // put setup code here
 }
 
@@ -30,9 +31,7 @@ function setGradient(c1, c2) {
   }
 }
 
-
 function draw() {
-
   ellipseColor = color(r,g,b);
   ellipseColor.setAlpha(128 + 128 * cos(millis() / 1000));
 
@@ -79,29 +78,29 @@ function draw() {
     break;
   }
 
-  if (y > height - 40){
+  if (y > height - 30){
     y = y - 40;
   }
-  if (y < 40){
+  if (y < 30){
     y = y + 40;
   }
-  if (x > width - 40){
+  if (x > width - 30){
     x = x - 40;
   }
-  if (x < 40){
+  if (x < 30){
     x = x + 40;
   }
 
-  if (p > height - 40){
+  if (p > height - 30){
     p = p - 40;
   }
-  if (p < 40){
+  if (p < 30){
     p = p + 40;
   }
-  if (o > width - 40){
+  if (o > width - 30){
     o = o - 40;
   }
-  if (o < 40){
+  if (o < 30){
     o = o + 40;
   }
 
@@ -114,15 +113,15 @@ function keyTyped() {
   }
   if (key === '2'){
     clear()
-    createCanvas(800,800);
+    createCanvas(windowWidth-17,windowHeight);
     c1 = color(255, 0, 31);
     c2 = color(255, 170, 0);
     setGradient(c1, c2);
     noStroke();
     fill(0,0,0);
-    rect(0,0,20,800);
-    rect(0,0,800,20);
-    rect(800,800,-800,-20);
-    rect(800,800,-20,-800);
+    rect(0,0,20,height);
+    rect(0,0,width,20);
+    rect(width,height,-width,-20);
+    rect(width,height,-20,-height);
   }
 }
